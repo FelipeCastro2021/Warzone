@@ -1,0 +1,262 @@
+$red: #EF4444
+
+$roboto: 'Roboto',sans-serif
+$lato: 'Lato', sans-serif
+$poppins: 'Poppins', sans-serif
+$lexend-deca: 'Lexend Deca'
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Roboto', sans-serif
+
+html
+  font-size: 62.5%
+
+body
+  font-size: 1.6rem
+  min-height: 100vh
+
+  display: grid
+  grid-template-columns: 1fr 50px minmax(300px, 600px) 1fr
+  gap: 20px
+
+ul
+  list-style: none
+
+a
+  text-decoration: none
+  color: inherit
+
+img
+  max-width: 100%
+  height: auto
+  display: block
+
+button
+  border: none
+  background: transparent
+
+.header
+  background-color: $red
+
+  padding: 15px 50px
+  margin-top: 40px
+  grid-column: 3 / -1
+
+  ul
+    display: flex
+    align-items: center
+    gap: 30px
+
+    li
+      padding: 5px 10px
+
+      a
+        font-family: $lato
+        font-weight: 600
+        font-size: 2rem
+        color: #fff
+
+.section
+  margin-bottom: 40px
+  grid-column: 2 / 4
+
+  display: grid
+  grid-template-columns: 50px 240px 1fr
+  gap: 20px
+
+  .title
+    grid-column: 1 / -1
+
+    font-family: $lexend-deca
+    font-size: 8rem
+    font-weight: 600
+    color: #222
+
+  .section-list
+    grid-column: 2 / 3
+
+    height: 300px
+    overflow-y: auto
+
+    margin-right: 20px
+
+  .section-container
+    grid-column: 3 / 4
+
+    .section-item
+      margin-bottom: 40px
+
+      .subtitle
+        font-size: 2.8rem
+        font-weight: 700
+        line-height: 110%
+        font-family: $poppins
+        color: #000
+
+        display: flex
+        align-items: center
+        gap: 10px
+
+        margin-bottom: 10px
+
+        &::before
+          content: ""
+          background-color: $red
+          width: 20px
+          height: 10px
+
+      .description
+        font-size: 1.6rem
+        line-height: 150%
+        color: #4d4d4d
+
+      .description + .description
+        margin-top: 6px
+
+      blockquote
+        padding-top: 10px
+
+        p
+          line-height: 150%
+          color: #1a1a1a
+
+        footer
+          font-style: italic
+
+          margin-top: 10px
+
+          cite
+            font-weight: 700
+
+.faq-list
+  grid-column: 2 / -1
+
+  details, dd
+    margin-bottom: 20px
+
+  details summary, dt
+    font-size: 2rem
+    font-weight: 500
+    color: #000
+
+    margin-top: 20px
+
+    display: flex
+    align-items: center
+    gap: 5px
+
+    &::after
+      content: "▼"
+      font-size: 1.6rem
+
+    &.active::after
+      content: "▲"
+
+  details, dd
+    font-size: 1.6rem
+    color: #555
+    line-height: 1.5
+    margin-top: 5px
+
+  details summary::marker
+    content: none
+
+#contact
+  .map
+    grid-column: 2
+
+  .contact-content
+    grid-column: 3
+    margin-left: 20px
+
+    ul
+      display: flex
+      flex-direction: column
+      gap: 15px
+
+      li
+        display: flex
+        align-items: center
+        gap: 10px
+
+        &::before
+          content: ""
+          width: 20px
+          height: 10px
+          background-color: $red
+
+        a
+          font-size: 2rem
+.footer
+  grid-column: 3 / -1
+  background-color: $red
+  padding: 20px 50px
+
+  color: #fff
+  font-family: $lato
+  font-size: 2rem
+  font-weight: 600
+
+  margin-bottom: 40px
+
+.js .section-item
+  display: none
+
+  &.active
+    display: block
+
+.js .faq-list dd
+  display: none
+
+  &.active
+    display: block
+
+@media (width < 1060px)
+  .header, .footer
+    grid-column: 1 / -1
+    margin-block: 0
+
+  .header
+    padding: 15px 20px
+
+    ul
+      flex-wrap: wrap
+
+@media (width < 768px)
+  body
+    grid-template-columns: 1fr
+
+  .section
+    grid-template-columns: 180px 1fr
+    grid-column: 1
+    gap: 8px
+
+    padding-inline: 20px
+
+    .title
+      font-size: 4.8rem
+
+    .section-list
+      grid-column: 1
+
+    .section-container
+      grid-column: 2
+
+  .faq-list
+    grid-column: 1 / 3
+
+  #contact
+    display: grid
+    gap: 40px
+
+    .map
+      grid-column: 1 / 3
+
+      img
+        width: 100%
+
+    .contact-content
+      grid-column: 1 / 3
